@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>data_analyze</title>
+
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <form id="grades-form">
+        <div class="input-container">
+          <label class="label" for="your-grade">Enter grade</label>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            required
+            autocomplete="off"
+            placeholder="Grade (0 and 100)"
+            id="your-grade"
+          />
+        </div>
+
+        <button type="submit" data-variant="primary">Submit</button>
+      </form>
+
+      <table border="1" id="stats-table" class="table table-center">
+        <thead>
+          <tr>
+            <th width="25%">Number of tests taken</th>
+            <th width="25%">First submitted grade</th>
+            <th width="25%">Last submitted grade</th>
+            <th width="25%">Average grade</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+
+      <!-- Для отображения истории оценок -->
+      <div id="grades-histiry">
+        <h2>Grades History</h2>
+        <ul id="grade-list"></ul>
+      </div>
+    </main>
+
+    <script type="module" src="src/js/index.js"></script>
+  </body>
 </html>
