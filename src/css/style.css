@@ -1,0 +1,112 @@
+@import '../css/normalize.css';
+@import '../css/blocks/buttons.css';
+@import '../css/blocks/forms.css';
+@import '../css/blocks/tables.css';
+
+:root {
+  --body-color: #fff; /* общий фон */
+  --title-color: #161616; /* цвет заголовков */
+  --subtitle-color: #42526b; /* цвет подзаголовков */
+
+  /* Background svg */
+  --background-background: transparent;
+  --background-background-hover: #e5e5e5;
+
+  /* Text */
+  --text-text-on-color: #fff;
+  --text-text-on-color-disabled: #8d8d8d;
+  /*  --text-text-disabled: #c6c6c6; */
+
+  /* Button */
+  --button-button-primary: #0f62fe;
+  --button-button-primary-hover: #0353e9;
+  --link-link-primary: #0f62fe; /* Link svg (редактировать)*/
+  --button-button-danger-primary: #da1e28; /* Link svg (удалить)*/
+  --button-button-danger-hover: #ba1b23; /* Link svg (удалить)*/
+  --button-button-disabled: #c6c6c6;
+
+  /* Focus */
+  --focus-focus: #0f62fe;
+  --focus-box-shadow: 0 0 0 0.1rem #fff inset;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+html {
+  /* Firefox не учитывает 62.5% */
+  font-size: 10px; /* указываем явно */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'IBM Plex Sans', Mulish, sans-serif;
+  background-color: var(--body-color);
+  color: var(--title-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block; /* убираем зазор снизу */
+}
+
+main {
+  max-width: 1320px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 1.6rem;
+}
+
+/* forms */
+input[type='number'],
+textarea {
+  --input-bg-color: #fff;
+  --input-border-default: 1px solid #8d8d8d;
+  --input-text-color: #161616;
+  --input-placeholder-color: #a8a8a8;
+}
+
+label {
+  --input-label-color: #525252;
+}
+
+label[data-label='disabled'] {
+  --label-color-disabled: #c6c6c6;
+}
+
+input[type='number']:hover,
+textarea:hover {
+  --input-outline: 2px solid #0f62fe;
+}
+
+input[type='number']:focus,
+textarea:focus {
+  --input-outline: 2px solid #0f62fe;
+}
+
+input[type='number']:disabled,
+textarea:disabled {
+  --input-bg-color-disabled: #f4f4f4;
+  --input-color-disabled: #c6c6c6;
+}
+
+/* table */
+.table {
+  --table-header-bg: #e0e0e0;
+  --table-header-color: #161616;
+  --table-border-color: #ccc;
+  --table-row-even-bg: white;
+  --table-row-odd-bg: #f4f4f4;
+}

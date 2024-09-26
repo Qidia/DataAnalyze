@@ -1,0 +1,87 @@
+.input-container {
+  display: inline-flex;
+  flex-direction: column; /* Все дочерние элементы выстраиваются вертикально */
+  margin-bottom: 1.6rem;
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--input-label-color);
+  user-select: none; /* Запрещает выделение текста */
+}
+
+label[data-label='disabled'] {
+  color: var(--label-color-disabled);
+  user-select: none;
+  pointer-events: none;
+}
+
+input[type='number'],
+textarea {
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.6rem;
+  border: 0;
+  line-height: 2rem;
+  border-bottom: var(--input-border-default);
+  box-sizing: border-box;
+  min-height: 4rem;
+  text-overflow: ellipsis;
+  margin-bottom: 0.4rem;
+  overflow-x: hidden;
+  /* max-width: 27rem; */
+  outline: none;
+}
+
+textarea {
+  white-space: break-spaces;
+  resize: none; /* Отключаем возможность изменения размера текстового поля */
+}
+
+/* Ограничение ширины для числового поля */
+/* input[type='number'] {
+  width: 20rem;
+}
+*/
+
+input[type='number']::placeholder,
+textarea::placeholder {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--input-placeholder-color);
+}
+
+input[type='number']:hover,
+textarea:hover {
+  outline: var(--input-outline);
+  outline-offset: -2px;
+  border-color: transparent;
+}
+
+input[type='number']:focus,
+textarea:focus {
+  outline: var(--input-outline);
+  outline-offset: -2px;
+  border-color: transparent;
+}
+
+input[type='number']:disabled,
+textarea:disabled {
+  background-color: var(--input-bg-color-disabled);
+  color: var(--input-color-disabled);
+  border-bottom-color: transparent;
+  user-select: none; /* Нельзя выделить текст */
+  pointer-events: none; /* Элемент становится неактивным для взаимодействия */
+}

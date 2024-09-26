@@ -1,0 +1,32 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--table-header-bg);
+  color: var(--table-header-color);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  border: 1px solid var(--table-border-color);
+  font-size: 1.6rem;
+}
+
+.table tbody {
+  font-size: 1.4rem;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--table-row-even-bg);
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--table-row-odd-bg);
+}
+
+.table td.number {
+  text-align: center;
+}
