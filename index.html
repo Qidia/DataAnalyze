@@ -19,7 +19,8 @@
       <form id="grades-form">
         <div class="input-container">
           <label class="label" for="your-grade">Enter grade</label>
-          <input
+          <div class="inputWithButton">
+            <input
             type="number"
             min="0"
             max="100"
@@ -28,11 +29,12 @@
             placeholder="Grade (0 and 100)"
             id="your-grade"
           />
+
+          <button type="submit" data-variant="primary">Submit</button>
+          </div>
         </div>
-
-        <button type="submit" data-variant="primary">Submit</button>
-
-
+      </form>
+      
       <table border="1" id="stats-table" class="table table-center">
         <thead>
           <tr>
@@ -47,9 +49,9 @@
       </table>
 
       <!-- Для отображения истории оценок -->
-      <div id="grades-histiry">
+      <div id="grades-histiry" class="grades-histiry">
         <h2>Grades History</h2>
-        <ul id="grade-list"></ul>
+        <ul id="grade-list" class="markers"></ul>
       </div>
     </main>
 

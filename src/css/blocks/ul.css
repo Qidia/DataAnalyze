@@ -1,0 +1,31 @@
+.markers {
+  margin: 0;
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+.markers li {
+  padding-left: 0.3rem;
+}
+
+.markers li::marker {
+  color: var(--background-marker);
+  font-size: 2.2rem;
+}
+
+li span {
+  display: inline-flex;
+  min-width: 3rem;
+  min-height: 4rem;
+  max-height: 4rem;
+  align-items: center;
+  max-width: 3rem;
+}
+
+.markers li:nth-child(even) {
+  background-color: var(--li-row-even-bg);
+}
+
+.markers li:nth-child(odd) {
+  background-color: var(--li-row-odd-bg);
+}

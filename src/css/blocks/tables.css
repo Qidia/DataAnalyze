@@ -17,6 +17,7 @@
 
 .table tbody {
   font-size: 1.4rem;
+  text-align: center;
 }
 
 .table tbody tr:nth-child(even) {

@@ -2,9 +2,9 @@ button,
 .btn-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-block: 0.8rem; /* вертикальный внутренний отступ */
-  padding-inline-end: 1rem; /* отступ справа от текста по макету */
+  padding-inline-end: 1rem;
   -webkit-padding-end: 1rem; /* Safari, old Chrome */
   -webkit-padding-start: 1rem; /* Safari, old Chrome */
   padding-inline-start: 1rem; /* внутренний отступ по горизонтали */
@@ -26,13 +26,9 @@ button,
 .btn-icon {
   min-width: 4rem;
 }
-
-/* button svg {
-  margin-left: 1.6rem;
-} */
-/*****************************************************************   */
+/******************************************************************/
 /* Button Primary */
-/*****************************************************************   */
+/******************************************************************/
 [data-variant='primary'] {
   background-color: var(--button-button-primary);
   border: 0.2rem solid var(--button-button-primary);
@@ -52,7 +48,7 @@ button,
   background-color: var(--button-button-primary);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
-  outline: none; /* Убирается стандартная обводка при фокусе */
+  outline: none;
 }
 
 [data-variant='primary'][disabled] {
@@ -65,45 +61,44 @@ button,
 [data-variant='primary'][disabled] path {
   fill: var(--text-text-on-color-disabled);
 }
-/*****************************************************************   */
+/******************************************************************/
 /* Button Ghost */
 /******************************************************************/
 [data-variant='ghost'] {
   background-color: var(--background-background);
   border: 0.2rem solid var(--background-background);
-  color: var(--link-link-primary);
+  color: var(--button-button-ghost-primary);
 }
 
 [data-variant='ghost'] path {
-  fill: var(--link-link-primary);
+  fill: var(--button-button-ghost-primary);
 }
 
 [data-variant='ghost']:hover {
-  background-color: var(--background-background-hover);
-  border: 0.2rem solid var(--background-background-hover);
-  color: var(--link-link-primary);
+  background-color: var(--button-button-ghost-hover);
+  border: 0.2rem solid var(--button-button-ghost-hover);
+  color: var(--text-text-on-color);
 }
 
 [data-variant='ghost']:focus {
   background-color: var(--background-background);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
-  color: var(--link-link-primary);
+  color: var(--button-button-ghost-primary);
   outline: none;
 }
 
 [data-variant='ghost']:hover path,
 [data-variant='ghost']:focus path {
-  fill: var(--link-link-primary);
+  fill: var(--text-text-on-color);
 }
-/*****************************************************************   */
+/******************************************************************/
 /* Button Danger-Ghost */
-/*****************************************************************   */
+/******************************************************************/
 [data-variant='danger-ghost'] {
   background-color: var(--background-background);
   border: 0.2rem solid var(--background-background);
   color: var(--button-button-danger-primary);
-  /*   cursor: pointer; */
 }
 
 [data-variant='danger-ghost'] path {
@@ -131,9 +126,9 @@ button,
 [data-variant='danger-ghost']:focus path {
   fill: var(--button-button-danger-primary);
 }
-/*****************************************************************   */
+/******************************************************************/
 /* Button Disabled Ghost, Danger-Ghost */
-/*****************************************************************   */
+/******************************************************************/
 [data-variant='ghost'][disabled],
 [data-variant='danger-ghost'][disabled] {
   background-color: var(--background-background);

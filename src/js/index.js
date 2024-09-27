@@ -6,32 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const grades = [14, 9, 13, 15, 18];
 
   /**
-   * Функция нахождения общего количества оценок
+   * Функция для получения общего количества оценок
    * @param {array} grades - массив оценок
+   * @returns {number} - количество оценок
    */
   function getNumberOfGrades(grades) {
     return grades.length;
   }
 
   /**
-   * Функция нахождения первой оценки
+   * Функция для получения первой оценки из списка
    * @param {array} grades - массив оценок
+   * @returns {number} - первая оценка
    */
   function getFirstGrade(grades) {
     return grades[0];
   }
 
   /**
-   * Функция нахождения последней оценки
+   * Функция для получения последней оценки из списка
    * @param {array} grades - массив оценок
+   * @returns {number} - последняя оценка
    */
   function getLastGrade(grades) {
     return grades.at(-1);
   }
 
   /**
-   * Функция нахождения средней оценки
+   * Функция для вычисления средней оценки
    * @param {array} grades - массив оценок
+   * @returns {number} - средняя оценка
    */
   function getAverageGrade(grades) {
     if (grades.length === 0) return 0;
@@ -39,34 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Функция удаления оценки
+   * Обработчик клика для удаления оценки
+   * @param {Event} event - объект события
    */
   function handleDeleteClick(event) {
-    console.log(event);
     const index = event.currentTarget.dataset.index;
-    console.log('index', index);
-
-    grades.splice(index, 1); // удаляем оценку по индексу в кол-ве 1 оценки
-    updateGradesHistory(grades); // Обновили историю
-    renderTable(grades); // показываем в таблице актуальные данные
+    grades.splice(index, 1);
+    updateGradesHistory(grades);
+    renderTable(grades);
   }
 
   /**
-   * Функция редактирования оценок
+   * Обработчик клика для редактирования оценки
+   * @param {Event} event - объект события
    */
   function handleEditClick(event) {
     const index = event.currentTarget.dataset.index;
-    const newGrade = prompt('Enter you new grade:');
+    const newGrade = prompt('Enter your new grade:');
 
     if (newGrade !== null && newGrade !== '') {
       grades[index] = Number.parseInt(newGrade, 10);
-      updateGradesHistory(grades); // Обновили историю
-      renderTable(grades); // показываем в таблице актуальные данные
+      updateGradesHistory(grades);
+      renderTable(grades);
     }
   }
 
   /**
-   * Функция для отрисовки истории оценок
+   * Функция для обновления списка оценок
    * @param {array} grades - массив оценок
    */
   function updateGradesHistory(grades) {
@@ -76,10 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
       grades.forEach((grade, index) => {
         const listItemHTML = `
             <li>
+              <div class="grade">
                 <span>${grade}</span>
-    
-                <!-- Кнопка редактирования -->
-                <div class="btn-icon" data-variant="ghost" data-index="${index}">
+
+                <div class="control-buttons">
+                  <!-- Кнопка редактирования -->
+                  <div class="btn-icon" data-variant="ghost" data-index="${index}">
                     <div data-icon="icon">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1 13H15V14H1V13ZM12.7 4.5C13.1 4.1 13.1 3.5 12.7 3.1L10.9 1.3C10.5 0.9 9.9 0.9 9.5 1.3L2 8.8V12H5.2L12.7 4.5ZM10.2 2L12 3.8L10.5 5.3L8.7 3.5L10.2 2ZM3 11V9.2L8 4.2L9.8 6L4.8 11H3Z" fill="#161616"/>
@@ -95,26 +100,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         </svg>
                     </div>
                 </div>
+                </div>
+              </div>
             </li>`;
 
         gradeList.insertAdjacentHTML('beforeend', listItemHTML);
 
-        const editButtons = document.querySelectorAll('[data-variant="ghost"'); // получение всех кнопок редактирования
-        const deleteButtons = document.querySelectorAll('[data-variant="danger-ghost"'); // получение всех кнопок удаления
+        const editButtons = document.querySelectorAll('[data-variant="ghost"');
+        const deleteButtons = document.querySelectorAll('[data-variant="danger-ghost"');
 
         deleteButtons.forEach((button) => {
-          button.addEventListener('click', handleDeleteClick); // подписываемся на событие для каждой кнопки
+          button.addEventListener('click', handleDeleteClick);
         });
 
         editButtons.forEach((button) => {
-          button.addEventListener('click', handleEditClick); // подписываемся на событие для каждой кнопки
+          button.addEventListener('click', handleEditClick);
         });
       });
     }
   }
 
   /**
-   * Функция для отрисовки таблицы
+   * Функция для отрисовки таблицы с данными
    * @param {array} grades - массив оценок
    */
   function renderTable(grades) {
@@ -126,17 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${getNumberOfGrades(grades)}</td>
                 <td>${getFirstGrade(grades)}</td>
                 <td>${getLastGrade(grades)}</td>
-                <td>${getAverageGrade(grades)}</td> 
+                <td>${getAverageGrade(grades)}</td>
            </tr>`;
 
       updateGradesHistory(grades);
     }
   }
 
+  // Обработка отправки формы
   if (gradesForm) {
     gradesForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const newGrade = Number.parseInt(yourGrade.value, 10);
+      event.preventDefault(); // предотвращаем стандартное поведение формы
+      const newGrade = Number.parseInt(yourGrade.value, 10); // получаем и парсим новую оценку
 
       grades.push(newGrade);
       yourGrade.value = '';
@@ -144,5 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Изначально отрисовываем таблицу с существующими оценками
   renderTable(grades);
 });
