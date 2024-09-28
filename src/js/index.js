@@ -63,8 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (newGrade !== null && newGrade !== '') {
       grades[index] = Number.parseInt(newGrade, 10);
-      updateGradesHistory(grades);
-      renderTable(grades);
+      if (isNaN(grades[index])) {
+        alert('Значение должно быть числом');
+        handleEditClick(event);
+      } else if (grades[index] > 100) {
+        alert('Значение должно быть меньше или равно 100');
+        handleEditClick(event);
+      } else {
+        updateGradesHistory(grades);
+        renderTable(grades);
+      }
     }
   }
 
